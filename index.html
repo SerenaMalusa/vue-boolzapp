@@ -96,7 +96,20 @@
                 <!-- contacts section -->
                 <div class="d-flex flex-column overflow-auto" id="contacts">
 
-                    <div class="contact d-flex gap-2 active">
+                    <div v-for="(contact,i) in contacts" 
+                    :class="activeClass = (i == activeContact) ? 'active' : ''"
+                    class="contact d-flex gap-2">
+                        <div class="sidebar_img debug">
+                            <img :src="contact.avatar" class="img-fluid" alt="contact picture">
+                        </div>
+                        <div class="contact-info flex-grow-1">
+                            <h2 class="contact-name mb-0">{{contact.name}}</h2>
+                            <p class="last-message">{{contact.messages[contact.messages.length-1].message}}</p>
+                        </div>
+                        <div class="contact-time">{{messageTime(contact.messages[contact.messages.length-1].date)}}</div>
+                    </div>
+                    
+                    <!-- <div class="contact d-flex gap-2 active">
                         <div class="sidebar_img debug">
                             <img class="img-fluid" src="./img/avatar_1.jpg" alt="contact picture">
                         </div>
@@ -105,88 +118,7 @@
                             <p class="last-message">Ciao</p>
                         </div>
                         <div class="contact-time">12:00</div>
-                    </div>
-
-                    <div class="contact d-flex gap-2">
-                        <div class="sidebar_img debug"></div>
-                        <div class="contact-info flex-grow-1">
-                            <h2 class="contact-name mb-0">Michele</h2>
-                            <p class="last-message">Ciao</p>
-                        </div>
-                        <div class="contact-time">12:00</div>
-                    </div>
-
-                    <div class="contact d-flex gap-2">
-                        <div class="sidebar_img debug"></div>
-                        <div class="contact-info flex-grow-1">
-                            <h2 class="contact-name mb-0">Michele</h2>
-                            <p class="last-message">Ciao</p>
-                        </div>
-                        <div class="contact-time">12:00</div>
-                    </div>
-
-                    <div class="contact d-flex gap-2">
-                        <div class="sidebar_img debug"></div>
-                        <div class="contact-info flex-grow-1">
-                            <h2 class="contact-name mb-0">Michele</h2>
-                            <p class="last-message">Ciao</p>
-                        </div>
-                        <div class="contact-time">12:00</div>
-                    </div>
-
-                    <div class="contact d-flex gap-2">
-                        <div class="sidebar_img debug"></div>
-                        <div class="contact-info flex-grow-1">
-                            <h2 class="contact-name mb-0">Michele</h2>
-                            <p class="last-message">Ciao</p>
-                        </div>
-                        <div class="contact-time">12:00</div>
-                    </div>
-
-                    <div class="contact d-flex gap-2">
-                        <div class="sidebar_img debug"></div>
-                        <div class="contact-info flex-grow-1">
-                            <h2 class="contact-name mb-0">Michele</h2>
-                            <p class="last-message">Ciao</p>
-                        </div>
-                        <div class="contact-time">12:00</div>
-                    </div>
-
-                    <div class="contact d-flex gap-2">
-                        <div class="sidebar_img debug"></div>
-                        <div class="contact-info flex-grow-1">
-                            <h2 class="contact-name mb-0">Michele</h2>
-                            <p class="last-message">Ciao</p>
-                        </div>
-                        <div class="contact-time">12:00</div>
-                    </div>
-
-                    <div class="contact d-flex gap-2">
-                        <div class="sidebar_img debug"></div>
-                        <div class="contact-info flex-grow-1">
-                            <h2 class="contact-name mb-0">Michele</h2>
-                            <p class="last-message">Ciao</p>
-                        </div>
-                        <div class="contact-time">12:00</div>
-                    </div>
-
-                    <div class="contact d-flex gap-2">
-                        <div class="sidebar_img debug"></div>
-                        <div class="contact-info flex-grow-1">
-                            <h2 class="contact-name mb-0">Michele</h2>
-                            <p class="last-message">Ciao</p>
-                        </div>
-                        <div class="contact-time">12:00</div>
-                    </div>
-
-                    <div class="contact d-flex gap-2">
-                        <div class="sidebar_img debug"></div>
-                        <div class="contact-info flex-grow-1">
-                            <h2 class="contact-name mb-0">Michele</h2>
-                            <p class="last-message">Ciao</p>
-                        </div>
-                        <div class="contact-time">12:00</div>
-                    </div>
+                    </div> -->
 
                 </div>
                 <!-- end contacts section -->
