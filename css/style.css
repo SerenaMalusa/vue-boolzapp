@@ -5,7 +5,8 @@
     --base-space: 20px;
     --app-w: 1235px;
     --sidebar-w: 440px;
-    --header-h: 50px;
+    --header-h: 60px;
+    --sidebar-el-h: calc(var(--header-h) + var(--base-space) / 2);
 }
 
 /********************************
@@ -71,13 +72,19 @@ body {
     aspect-ratio: 1;
 }
 
+.contact,
+#notifications {
+    height: var(--header-h);
+    padding: calc(var(--base-space) / 4) calc(var(--base-space) / 2);
+}
+
 /* HEADER */
 #user-info {
     padding: calc(var(--base-space)/4) calc(var(--base-space)/2);
 }
 
 #user-actions {
-    padding: calc(var(--base-space)/2) calc(var(--base-space)/4);
+    padding: calc(var(--base-space)/1.5) calc(var(--base-space)/4);
 }
 
 .user-action {
@@ -88,8 +95,6 @@ body {
 
 /* NOTIFICATIONS */
 #notifications {
-    height: calc(var(--header-h) + var(--base-space) / 2);
-    padding: calc(var(--base-space) / 2);
     background-color: #8edafc;
 }
 
@@ -111,10 +116,26 @@ body {
     color: #476477;
 }
 
-/* search section*/
+/* SEARCH */
+#search-contact {
+    padding: calc(var(--base-space) * 0.6) calc(var(--base-space) / 2);
+    height: var(--header-h);
+}
+
 #search-bar_input,
 #search-bar_icon {
     font-size: 0.8rem;
+}
+
+/* CONTATCS */
+#contacts {
+    height: calc(100% - var(--header-h) * 3);
+}
+
+.last-message,
+.contact-time {
+    font-size: 0.8rem;
+    color: #9ea2a7;
 }
 
 /********************************
