@@ -19,8 +19,10 @@
 /********************************
      UTILITIES
 ********************************/
-header {
+header,
+footer {
     height: var(--header-h);
+    background-color: #f3f3f3;
 }
 
 .contact-name {
@@ -156,7 +158,9 @@ body {
     width: calc(100% - var(--sidebar-w));
 }
 
-/* HEADER */
-#main_header {
-    height: var(--header-h);
+/* CONVERSATION */
+#conversation {
+    height: calc(100% - var(--header-h) * 2);
 }
+
+/* FOOTER */
