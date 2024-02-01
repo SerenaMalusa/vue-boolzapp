@@ -181,6 +181,10 @@ const app = createApp ({
             return date.substr(11,5);
         },
 
+        messageDate(date) {
+            return date.substr(0,10);
+        },
+
         goToChat(index) {
             this.activeContact = index;
         }

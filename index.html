@@ -142,7 +142,14 @@
                         </div>
                         <div class="contact-info flex-grow-1">
                             <h2 class="contact-name mb-0">{{contacts[activeContact].name}}</h2>
-                            <p class="last-message">{{contacts[activeContact].messages[contacts[activeContact].messages.length-1].message}}</p>
+                            <p class="last-access">
+                                {{`Ultimo accesso alle 
+                                    ${messageTime(contacts[activeContact].messages[contacts[activeContact].messages.length-1].date)} 
+                                    del 
+                                    ${messageDate(contacts[activeContact].messages[contacts[activeContact].messages.length-1].date)}`
+                                }}
+                            </p>
+                            <!-- contacts[activeContact].messages[contacts[activeContact].messages.length-1].date -->
                         </div>
                     </div>
                     <!-- end contact info -->
