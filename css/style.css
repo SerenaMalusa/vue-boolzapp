@@ -111,6 +111,12 @@ body {
     color: #476477;
 }
 
+/* search section*/
+#search-bar_input,
+#search-bar_icon {
+    font-size: 0.8rem;
+}
+
 /********************************
      MAIN
 ********************************/
