@@ -160,7 +160,30 @@ body {
 
 /* CONVERSATION */
 #conversation {
+    padding: var(--base-space) calc(var(--base-space) * 2);
     height: calc(100% - var(--header-h) * 2);
+    background-image: url(../img/wallpaper2.jpg);
+    background-size: contain;
 }
 
-/* FOOTER */
+.message {
+    padding: 0 calc(var(--base-space)/2);
+    background-color: white;
+    border-radius: 5px 5px 5px 0;
+    min-height: calc(var(--header-h) / 1.5);
+
+    align-items: center;
+    justify-content: space-between;
+}
+
+.message.sent {
+    border-radius: 5px 5px 0 5px;
+    align-self: flex-end;
+    background-color: #d5f9ba;
+}
+
+.message_time {
+    font-size: 0.8rem;
+    color: #9ea2a7;
+    align-self: flex-end;
+}
