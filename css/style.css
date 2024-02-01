@@ -81,9 +81,15 @@ body {
 }
 
 .sidebar_img {
+    border: 1px solid #e9ebeb;
     border-radius: 50%;
     height: calc(var(--header-h) - var(--base-space)/2);
     aspect-ratio: 1;
+    overflow: hidden;
+}
+
+.sidebar_img > img {
+    object-fit: fill;
 }
 
 .contact,
