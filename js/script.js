@@ -180,11 +180,11 @@ const app = createApp ({
         messageTime(date) {
             return date.substr(11,5);
         },
-
+        // function that gets the date from the date string
         messageDate(date) {
             return date.substr(0,10);
         },
-
+        // function that changes the active contact to the index of the clicked chat
         goToChat(index) {
             this.activeContact = index;
         }

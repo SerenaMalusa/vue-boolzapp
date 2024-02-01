@@ -146,6 +146,7 @@ body {
     height: calc(100% - var(--header-h) * 3);
 }
 
+.last-message,
 .last-access,
 .contact-time {
     font-size: 0.8rem;
