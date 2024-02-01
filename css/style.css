@@ -98,6 +98,10 @@ body {
     padding: calc(var(--base-space) / 4) calc(var(--base-space) / 2);
 }
 
+.contact:hover {
+    cursor: pointer;
+}
+
 /* HEADER */
 #user-info {
     padding: calc(var(--base-space)/4) calc(var(--base-space)/2);

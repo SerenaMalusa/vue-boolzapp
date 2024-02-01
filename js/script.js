@@ -167,7 +167,7 @@ const app = createApp ({
                 }
             ],
             // index of the contact whose chat is open
-            activeContact: 1,
+            activeContact: 5,
         }
     },
 
@@ -179,6 +179,10 @@ const app = createApp ({
         // function that gets the time from the date string
         messageTime(date) {
             return date.substr(11,5);
+        },
+
+        goToChat(index) {
+            this.activeContact = index;
         }
     },
 });
