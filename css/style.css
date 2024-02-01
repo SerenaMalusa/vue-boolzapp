@@ -28,6 +28,16 @@ header {
     font-weight: 600;
 }
 
+.actions {
+    padding: calc(var(--base-space)/1.5) calc(var(--base-space)/4);
+}
+
+.action {
+    margin: 0 3px;
+    font-size: 1.2rem;
+    color: #b0b0b0;
+}
+
 /********************************
      BODY AND BACKGROUND
 ********************************/
@@ -62,6 +72,7 @@ body {
      SIDEBAR
 ********************************/
 #sidebar {
+    border: 1px solid #e9ebeb;
     height: 100%;
     width: var(--sidebar-w);
 }
@@ -81,16 +92,6 @@ body {
 /* HEADER */
 #user-info {
     padding: calc(var(--base-space)/4) calc(var(--base-space)/2);
-}
-
-#user-actions {
-    padding: calc(var(--base-space)/1.5) calc(var(--base-space)/4);
-}
-
-.user-action {
-    margin: 0 3px;
-    font-size: 1.2rem;
-    color: #b0b0b0;
 }
 
 /* NOTIFICATIONS */
@@ -150,6 +151,12 @@ body {
      MAIN
 ********************************/
 #main {
+    border: 1px solid #e9ebeb;
     height: 100%;
     width: calc(100% - var(--sidebar-w));
+}
+
+/* HEADER */
+#main_header {
+    height: var(--header-h);
 }

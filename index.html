@@ -57,10 +57,10 @@
                     <!-- end user info elements -->
 
                     <!-- user actions icons -->
-                    <div id="user-actions">
-                        <i class="user-action bi bi-arrow-clockwise"></i>
-                        <i class="user-action bi bi-chat-left-fill"></i>
-                        <i class="user-action bi bi-three-dots-vertical"></i>
+                    <div class="actions" id="user-actions">
+                        <i class="action bi bi-arrow-clockwise"></i>
+                        <i class="action bi bi-chat-left-fill"></i>
+                        <i class="action bi bi-three-dots-vertical"></i>
                     </div>
                     <!-- end user actions icons -->
 
@@ -193,7 +193,29 @@
             <!-- wnd sidebar -->
 
             <!-- main -->
-            <div class="debug" id="main"></div>
+            <div id="main">
+
+                <!-- main header -->
+                <header class="d-flex justify-content-between debug" id="main_header">
+
+                    <div class="contact d-flex gap-2">
+                        <div class="sidebar_img debug"></div>
+                        <div class="contact-info flex-grow-1">
+                            <h2 class="contact-name mb-0">Michele</h2>
+                            <p class="last-message">Ciao</p>
+                        </div>
+                    </div>
+
+                    <div class="actions" id="contact-actions">
+                        <i class="action bi bi-search"></i>
+                        <i class="action bi bi-paperclip"></i>
+                        <i class="action user-action bi bi-three-dots-vertical"></i>
+                    </div>
+
+                </header>
+                <!-- end main header -->
+
+            </div>
             <!-- end main -->
             
         </div>
