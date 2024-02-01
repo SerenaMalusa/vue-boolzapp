@@ -1,3 +1,36 @@
-*{
-    background-color: aquamarine;
+/********************************
+     CUSTOM PROPS
+********************************/
+:root {
+    --base-space: 20px;
+}
+
+/********************************
+     BODY AND BACKGROUD
+********************************/
+body {
+    background-color: #dadbd2;
+}
+
+/* colored-bar da eliminare se fa casino*/
+#colored-bar {
+    height: 105px;
+    background-color: #009688;
+
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: -1;
+}
+
+/********************************
+     APP
+********************************/
+#app {
+    margin: var(--base-space)  auto;    
+    height: calc(100vh - var(--base-space) * 2);
+    width: 1235px;
+    background-color: #ffffff;
 }
