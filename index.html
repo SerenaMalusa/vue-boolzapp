@@ -96,9 +96,11 @@
                 <!-- contacts section -->
                 <div class="d-flex flex-column overflow-auto" id="contacts">
 
-                    <div v-for="(contact,i) in contacts" 
+                    <div 
+                    v-for="(contact,i) in contacts" 
                     :class="activeClass = (i == activeContact) ? 'active' : ''"
-                    class="contact d-flex gap-2">
+                    class="contact d-flex gap-2"
+                    >
                         <div class="sidebar_img debug">
                             <img :src="contact.avatar" class="img-fluid" alt="contact picture">
                         </div>
@@ -158,7 +160,16 @@
                 <!-- conversation section -->
                 <section class="d-flex flex-column gap-3 overflow-auto" id="conversation">
 
-                    <div class="message sent d-flex">
+                    <div 
+                    v-for="message in contacts[activeContact].messages" 
+                    :class="message.status"
+                    class="message d-flex gap-2"
+                    >
+                        <p class="message_text">{{message.message}}</p>
+                        <span class="message_time">{{messageTime(message.date)}}</span>
+                    </div>
+
+                    <!-- <div class="message sent d-flex">
                         <p class="message_text">Ciao ciao</p>
                         <span class="message_time">12:00</span>
                     </div>
@@ -166,35 +177,7 @@
                     <div class="message d-flex">
                         <p class="message_text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Commodi eius pariatur, officia non, possimus nihil eligendi quas dignissimos veniam qui eos doloribus hic necessitatibus culpa tenetur similique! Similique vitae ipsa saepe animi asperiores tempore pariatur voluptatum! Eligendi, illum minus magni repellat, a cupiditate optio dolorem magnam quo tenetur odit sapiente.</p>
                         <span class="message_time">12:00</span>
-                    </div>
-
-                    <div class="message sent d-flex">
-                        <p class="message_text">Ciao miao</p>
-                        <span class="message_time">12:00</span>
-                    </div>
-
-                    <div class="message sent d-flex">
-                        <p class="message_text">Ciao bau</p>
-                        <span class="message_time">12:00</span>
-                    </div>
-
-                    <div class="message sent d-flex">
-                        <p class="message_text">Ciao bau</p>
-                        <span class="message_time">12:00</span>
-                    </div>
-                    <div class="message sent d-flex">
-                        <p class="message_text">Ciao bau</p>
-                        <span class="message_time">12:00</span>
-                    </div>
-                    <div class="message sent d-flex">
-                        <p class="message_text">Ciao bau</p>
-                        <span class="message_time">12:00</span>
-                    </div>
-                    <div class="message sent d-flex">
-                        <p class="message_text">Ciao bau</p>
-                        <span class="message_time">12:00</span>
-                    </div>
-                    
+                    </div>                    -->
                     
                 </section>
                 <!-- end conversation section -->
