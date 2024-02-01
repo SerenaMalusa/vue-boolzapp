@@ -3,10 +3,19 @@
 ********************************/
 :root {
     --base-space: 20px;
+    --sidebar-w: 440px;
 }
 
 /********************************
-     BODY AND BACKGROUD
+     DEBUG
+********************************/
+.debug {
+    border: 1px solid black;
+}
+
+
+/********************************
+     BODY AND BACKGROUND
 ********************************/
 body {
     background-color: #dadbd2;
@@ -33,4 +42,20 @@ body {
     height: calc(100vh - var(--base-space) * 2);
     width: 1235px;
     background-color: #ffffff;
+}
+
+/********************************
+     SIDEBAR
+********************************/
+#sidebar {
+    height: 100%;
+    width: var(--sidebar-w);
+}
+
+/********************************
+     MAIN
+********************************/
+#main {
+    height: 100%;
+    width: calc(100% - var(--sidebar-w));
 }
