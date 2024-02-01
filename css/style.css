@@ -3,7 +3,9 @@
 ********************************/
 :root {
     --base-space: 20px;
+    --app-w: 1235px;
     --sidebar-w: 440px;
+    --header-h: 50px;
 }
 
 /********************************
@@ -13,6 +15,17 @@
     border: 1px solid black;
 }
 
+/********************************
+     UTILITIES
+********************************/
+header {
+    height: var(--header-h);
+}
+
+.contact-name {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
 
 /********************************
      BODY AND BACKGROUND
@@ -40,7 +53,7 @@ body {
 #app {
     margin: var(--base-space)  auto;    
     height: calc(100vh - var(--base-space) * 2);
-    width: 1235px;
+    width: var(--app-w);
     background-color: #ffffff;
 }
 
@@ -50,6 +63,27 @@ body {
 #sidebar {
     height: 100%;
     width: var(--sidebar-w);
+}
+
+/* HEADER */
+#user-info {
+    padding: calc(var(--base-space)/4) calc(var(--base-space)/4);
+}
+
+#user-img {
+    border-radius: 50%;
+    height: calc(var(--header-h) - var(--base-space)/2);
+    aspect-ratio: 1;
+}
+
+#user-actions {
+    padding: calc(var(--base-space)/2) calc(var(--base-space)/4);
+}
+
+.user-action {
+    margin: 0 3px;
+    font-size: 1.2rem;
+    color: #b0b0b0;
 }
 
 /********************************
