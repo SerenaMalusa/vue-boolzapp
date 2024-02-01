@@ -175,6 +175,7 @@ body {
     min-width: var(--message-w);
     max-width: calc(var(--message-w) * 2);
 
+    flex-shrink: 0;
     align-self: flex-start;
     align-items: center;
     justify-content: space-between;
