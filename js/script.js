@@ -167,7 +167,7 @@ const app = createApp ({
                 }
             ],
             // index of the contact whose chat is open
-            activeContact: 0,
+            activeContact: 1,
         }
     },
 

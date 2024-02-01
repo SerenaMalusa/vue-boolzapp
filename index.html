@@ -137,11 +137,11 @@
                     <!-- contact info -->
                     <div class="contact d-flex gap-2">
                         <div class="sidebar_img debug">
-                            <img class="img-fluid" src="./img/avatar_1.jpg" alt="contact picture">
+                            <img class="img-fluid" :src="contacts[activeContact].avatar" src="./img/avatar_1.jpg" alt="contact picture">
                         </div>
                         <div class="contact-info flex-grow-1">
-                            <h2 class="contact-name mb-0">Michele</h2>
-                            <p class="last-message">Ciao</p>
+                            <h2 class="contact-name mb-0">{{contacts[activeContact].name}}</h2>
+                            <p class="last-message">{{contacts[activeContact].messages[contacts[activeContact].messages.length-1].message}}</p>
                         </div>
                     </div>
                     <!-- end contact info -->
