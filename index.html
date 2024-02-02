@@ -90,33 +90,38 @@
                       <div class="input-group-text" id="search-bar_icon">
                         <i class="bi bi-search"></i>
                       </div>
-                      <input v-model="searchContact" type="text" class="form-control" id="search-bar_input" placeholder="Cerca o inizia una nuova chat">
+                      <input @keyUp.enter="changeVisible()" v-model="searchContact" type="text" class="form-control" id="search-bar_input" placeholder="Cerca o inizia una nuova chat">
                     </div>                
                 </section>
                 <!-- end search section -->
 
                 <!-- contacts section -->
-                <!-- show all contacts -->
-                <div v-if="!searchContact" class="d-flex flex-column overflow-auto" id="contacts">
+                <div class="d-flex flex-column overflow-auto" id="contacts">
 
                     <div 
-                    v-for="(contact,i) in contacts" 
+                    v-for="(contact,i) in contacts"
+                    v-show="contacts[i].visible"
                     :class="activeClass = (i == activeChat) ? 'active' : ''"
                     @click="goToChat(i)"
-                    class="contact d-flex gap-2"
+                    class="contact"
                     >
-                        <div class="sidebar_img debug">
-                            <img :src="contact.avatar" class="img-fluid" alt="contact picture">
+                        <div class="d-flex gap-2">
+                            
+                            <div class="sidebar_img debug">
+                                <img :src="contact.avatar" class="img-fluid" alt="contact picture">
+                            </div>
+                            <div class="contact-info flex-grow-1">
+                                <h2 class="contact-name mb-0">{{contact.name}}</h2>
+                                <p v-if="contact.messages.length > 0" class="last-message">
+                                    {{contact.messages[contact.messages.length-1].message}}
+                                </p>
+                            </div>
+                            <div v-if="contact.messages.length > 0" class="contact-time">
+                                {{messageTime(contact.messages[contact.messages.length-1].date)}}
+                            </div>
+                            
                         </div>
-                        <div class="contact-info flex-grow-1">
-                            <h2 class="contact-name mb-0">{{contact.name}}</h2>
-                            <p v-if="contact.messages.length > 0" class="last-message">
-                                {{contact.messages[contact.messages.length-1].message}}
-                            </p>
-                        </div>
-                        <div v-if="contact.messages.length > 0" class="contact-time">
-                            {{messageTime(contact.messages[contact.messages.length-1].date)}}
-                        </div>
+
                     </div>
                     
                     <!-- <div class="contact d-flex gap-2 active">
@@ -131,34 +136,6 @@
                     </div> -->
 
                 </div>
-                <!-- end show all contacts -->
-                
-                <!-- show only on search -->
-                <div v-else class="d-flex flex-column overflow-auto" id="contacts">
-
-                    <div 
-                    v-for="(contact,i) in similarContacts" 
-                    :class="activeClass = (i == activeChat) ? 'active' : ''"
-                    @click="goToChat(i)"
-                    class="contact d-flex gap-2"
-                    >
-                        <div class="sidebar_img debug">
-                            <img :src="contact.avatar" class="img-fluid" alt="contact picture">
-                        </div>
-                        <div class="contact-info flex-grow-1">
-                            <h2 class="contact-name mb-0">{{contact.name}}</h2>
-                            <p v-if="contact.messages.length > 0" class="last-message">
-                                {{contact.messages[contact.messages.length-1].message}}
-                            </p>
-                        </div>
-                        <div v-if="contact.messages.length > 0" class="contact-time">
-                            {{messageTime(contact.messages[contact.messages.length-1].date)}}
-                        </div>
-                    </div>
-                    
-
-                </div>
-                <!-- end show only on search -->
                 <!-- end contacts section -->
 
             </div>

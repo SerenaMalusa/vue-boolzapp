@@ -25,9 +25,10 @@ const app = createApp ({
             // find the contacts whose name contains the searchContact string
             const foundContacts = this.contacts.filter((contact) => {
                 const isThere = contact.name.toLowerCase().includes(this.searchContact.toLowerCase());
-                console.log(this.searchContact,contact.name,isThere);
+                // console.log(this.searchContact,contact.name,isThere);
                 return isThere;
             });
+
             return foundContacts;
         },
     },
@@ -108,7 +109,21 @@ const app = createApp ({
                 // push this message in the messages array
                 contact.messages.push(newMessage);
             }, 1000);
-        }
+        },
+        
+        changeVisible() {
+
+            this.contacts.forEach((contact) => {
+                contact.visible = false;
+                if (this.similarContacts.includes(contact)) {
+                     contact.visible = true;
+                }
+                return contact;
+            });            
+
+            console.log(this.contacts);
+            
+        },
     },
 });
 
