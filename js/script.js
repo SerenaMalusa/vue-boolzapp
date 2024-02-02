@@ -20,6 +20,16 @@ const app = createApp ({
         activeMessages() {
             return this.activeContact.messages;
         },
+        // array of filtered contacts 
+        similarContacts() {
+            // find the contacts whose name contains the searchContact string
+            const foundContacts = this.contacts.filter((contact) => {
+                const isThere = contact.name.toLowerCase().includes(this.searchContact.toLowerCase());
+                console.log(this.searchContact,contact.name,isThere);
+                return isThere;
+            });
+            return foundContacts;
+        },
     },
 
     methods: {

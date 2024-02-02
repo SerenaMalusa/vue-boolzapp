@@ -136,16 +136,26 @@
                 <!-- show only on search -->
                 <div v-else class="d-flex flex-column overflow-auto" id="contacts">
 
-                    <div class="contact d-flex gap-2 active">
+                    <div 
+                    v-for="(contact,i) in similarContacts" 
+                    :class="activeClass = (i == activeChat) ? 'active' : ''"
+                    @click="goToChat(i)"
+                    class="contact d-flex gap-2"
+                    >
                         <div class="sidebar_img debug">
-                            <img class="img-fluid" src="./img/avatar_1.jpg" alt="contact picture">
+                            <img :src="contact.avatar" class="img-fluid" alt="contact picture">
                         </div>
                         <div class="contact-info flex-grow-1">
-                            <h2 class="contact-name mb-0">Michele</h2>
-                            <p class="last-message">Ciao</p>
+                            <h2 class="contact-name mb-0">{{contact.name}}</h2>
+                            <p v-if="contact.messages.length > 0" class="last-message">
+                                {{contact.messages[contact.messages.length-1].message}}
+                            </p>
                         </div>
-                        <div class="contact-time">12:00</div>
+                        <div v-if="contact.messages.length > 0" class="contact-time">
+                            {{messageTime(contact.messages[contact.messages.length-1].date)}}
+                        </div>
                     </div>
+                    
 
                 </div>
                 <!-- end show only on search -->
