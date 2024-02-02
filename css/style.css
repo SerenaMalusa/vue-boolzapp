@@ -3,8 +3,8 @@
 ********************************/
 :root {
     --base-space: 20px;
-    --app-w: 1235px;
-    --sidebar-w: 440px;
+    --app-w: 85vw;
+    --sidebar-w: 40%;
     --header-h: 60px;
     --sidebar-el-h: calc(var(--header-h) + var(--base-space) / 2);
     --message-w: 280px;
@@ -46,11 +46,12 @@ footer {
 ********************************/
 body {
     background-color: #dadbd2;
+    background-image: linear-gradient(to bottom, #009688 0 17vh, #dadbd2 17vh 100vh);
 }
 
 /* colored-bar da eliminare se fa casino*/
-#colored-bar {
-    height: 105px;
+/* #colored-bar {
+    height: 17vh;
     background-color: #009688;
 
     position: fixed;
@@ -59,7 +60,7 @@ body {
     right: 0;
     left: 0;
     z-index: -1;
-}
+} */
 
 /********************************
      APP
