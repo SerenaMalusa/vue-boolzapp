@@ -90,12 +90,13 @@
                       <div class="input-group-text" id="search-bar_icon">
                         <i class="bi bi-search"></i>
                       </div>
-                      <input type="text" class="form-control" id="search-bar_input" placeholder="Cerca o inizia una nuova chat">
+                      <input v-model="searchContact" type="text" class="form-control" id="search-bar_input" placeholder="Cerca o inizia una nuova chat">
                     </div>                
                 </section>
                 <!-- end search section -->
 
                 <!-- contacts section -->
+                <!-- show all contacts -->
                 <div v-if="!searchContact" class="d-flex flex-column overflow-auto" id="contacts">
 
                     <div 
@@ -130,9 +131,11 @@
                     </div> -->
 
                 </div>
-                <!-- end contacts section -->
-
+                <!-- end show all contacts -->
+                
+                <!-- show only on search -->
                 <div v-else class="d-flex flex-column overflow-auto" id="contacts">
+
                     <div class="contact d-flex gap-2 active">
                         <div class="sidebar_img debug">
                             <img class="img-fluid" src="./img/avatar_1.jpg" alt="contact picture">
@@ -143,7 +146,10 @@
                         </div>
                         <div class="contact-time">12:00</div>
                     </div>
+
                 </div>
+                <!-- end show only on search -->
+                <!-- end contacts section -->
 
             </div>
             <!-- wnd sidebar -->
