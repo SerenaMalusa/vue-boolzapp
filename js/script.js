@@ -6,6 +6,8 @@ const app = createApp ({
             contacts: contacts,
             // index of the contact whose chat is open
             activeChat: 0,
+            // value to use for the search among contacts
+            searchContact: '',
         }
     },
 

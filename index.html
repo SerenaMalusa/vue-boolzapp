@@ -96,7 +96,7 @@
                 <!-- end search section -->
 
                 <!-- contacts section -->
-                <div class="d-flex flex-column overflow-auto" id="contacts">
+                <div v-if="!searchContact" class="d-flex flex-column overflow-auto" id="contacts">
 
                     <div 
                     v-for="(contact,i) in contacts" 
@@ -131,6 +131,19 @@
 
                 </div>
                 <!-- end contacts section -->
+
+                <div v-else class="d-flex flex-column overflow-auto" id="contacts">
+                    <div class="contact d-flex gap-2 active">
+                        <div class="sidebar_img debug">
+                            <img class="img-fluid" src="./img/avatar_1.jpg" alt="contact picture">
+                        </div>
+                        <div class="contact-info flex-grow-1">
+                            <h2 class="contact-name mb-0">Michele</h2>
+                            <p class="last-message">Ciao</p>
+                        </div>
+                        <div class="contact-time">12:00</div>
+                    </div>
+                </div>
 
             </div>
             <!-- wnd sidebar -->
