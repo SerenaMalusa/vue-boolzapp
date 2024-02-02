@@ -51,19 +51,23 @@ const app = createApp ({
                     ${this.messageDate(lastReceivedTime)}
                     `
         },
-
-        sendMessage(contact) {
-            // if there is nothing written in the imput do nothing
-            if (!contact.draft) return;
+        // function to get the date and time and print them in the right format
+        printDate() {
             // get the date of the moment
             let newDate = new Date;
             let newDay = (newDate.getDate() < 10) ? '0' + newDate.getDate() : newDate.getDate();
             let newMonth = newDate.getMonth() + 1;
             newMonth = (newMonth < 10) ? '0' + newMonth : newMonth;
+            // return newdate in the right format
+            return `${newDay}/${newMonth}/${newDate.getFullYear()} ${newDate.getHours()}:${newDate.getMinutes()}:${newDate.getSeconds()}`;
+        },
+        // function to send a new message
+        sendMessage(contact) {
+            // if there is nothing written in the imput do nothing
+            if (!contact.draft) return;            
             // create a new message   
             const newMessage = {
-                // data = newdate in the right format
-                date: `${newDay}/${newMonth}/${newDate.getFullYear()} ${newDate.getHours()}:${newDate.getMinutes()}:${newDate.getSeconds()}`,
+                date: this.printDate(),
                 // messagge will be the content of the draft
                 message: contact.draft,
                 // status wil be sent
@@ -74,7 +78,25 @@ const app = createApp ({
             contact.messages.push(newMessage);
             // empty the draft (and consequently the imput)
             contact.draft = '';
+            // instant reply
+            this.receiveMessage(contact);
         },
+        // function to create a new received message
+        receiveMessage(contact) {
+            // create a new message   
+            const newMessage = {
+                date: this.printDate(),
+                // messagge will be what I want
+                message: 'è stato il gatto',
+                // status wil be sent
+                status: 'received'
+            };
+            // after 1 second
+            setTimeout(()=> {
+                // push this message in the messages array
+                contact.messages.push(newMessage);
+            }, 1000);
+        }
     },
 });
 
