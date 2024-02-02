@@ -7,7 +7,7 @@
     --sidebar-w: 40%;
     --header-h: 60px;
     --sidebar-el-h: calc(var(--header-h) + var(--base-space) / 2);
-    --message-w: 280px;
+    --message-w: 40%;
 }
 
 /********************************

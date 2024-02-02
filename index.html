@@ -109,9 +109,13 @@
                         </div>
                         <div class="contact-info flex-grow-1">
                             <h2 class="contact-name mb-0">{{contact.name}}</h2>
-                            <p class="last-message">{{contact.messages[contact.messages.length-1].message}}</p>
+                            <p v-if="contact.messages.length > 0" class="last-message">
+                                {{contact.messages[contact.messages.length-1].message}}
+                            </p>
                         </div>
-                        <div class="contact-time">{{messageTime(contact.messages[contact.messages.length-1].date)}}</div>
+                        <div v-if="contact.messages.length > 0" class="contact-time">
+                            {{messageTime(contact.messages[contact.messages.length-1].date)}}
+                        </div>
                     </div>
                     
                     <!-- <div class="contact d-flex gap-2 active">
@@ -144,7 +148,7 @@
                         </div>
                         <div class="contact-info flex-grow-1">
                             <h2 class="contact-name mb-0">{{activeContact.name}}</h2>
-                            <p class="last-access">
+                            <p v-if="activeMessages.length > 0" class="last-access">
                                 {{printLastAccess()}}
                             </p>
                             <!-- activeContact.messages[activeContact.messages.length-1].date -->
