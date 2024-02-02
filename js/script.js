@@ -51,6 +51,30 @@ const app = createApp ({
                     ${this.messageDate(lastReceivedTime)}
                     `
         },
+
+        sendMessage(contact) {
+            // if there is nothing written in the imput do nothing
+            if (!contact.draft) return;
+            // get the date of the moment
+            let newDate = new Date;
+            let newDay = (newDate.getDate() < 10) ? '0' + newDate.getDate() : newDate.getDate();
+            let newMonth = newDate.getMonth() + 1;
+            newMonth = (newMonth < 10) ? '0' + newMonth : newMonth;
+            // create a new message   
+            const newMessage = {
+                // data = newdate in the right format
+                date: `${newDay}/${newMonth}/${newDate.getFullYear()} ${newDate.getHours()}:${newDate.getMinutes()}:${newDate.getSeconds()}`,
+                // messagge will be the content of the draft
+                message: contact.draft,
+                // status wil be sent
+                status: 'sent'
+            };
+            // console.log(newMessage.date);
+            // push this message in the messages array
+            contact.messages.push(newMessage);
+            // empty the draft (and consequently the imput)
+            contact.draft = '';
+        },
     },
 });
 
