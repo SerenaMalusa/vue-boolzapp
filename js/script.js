@@ -23,13 +23,11 @@ const app = createApp ({
         // array of filtered contacts 
         similarContacts() {
             // find the contacts whose name contains the searchContact string
-            const foundContacts = this.contacts.filter((contact) => {
+            return this.contacts.filter((contact) => {
                 const isThere = contact.name.toLowerCase().includes(this.searchContact.toLowerCase());
                 // console.log(this.searchContact,contact.name,isThere);
                 return isThere;
             });
-
-            return foundContacts;
         },
     },
 
@@ -110,19 +108,21 @@ const app = createApp ({
                 contact.messages.push(newMessage);
             }, 1000);
         },
-        
+        // function that changes the value of the 'visible' key for the argument contact
         changeVisible() {
-
+            // cicle all the contacts
             this.contacts.forEach((contact) => {
+                // put all the visible keys to false
                 contact.visible = false;
+                // if this contact name is included in the similar contact array
                 if (this.similarContacts.includes(contact)) {
+                    // change the visible key to true
                      contact.visible = true;
                 }
+                // return the changed contacts
                 return contact;
-            });            
-
-            console.log(this.contacts);
-            
+            });           
+            // console.log(this.contacts);            
         },
     },
 });
