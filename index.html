@@ -199,6 +199,7 @@
                     v-for="(message,i) in activeContact.messages" 
                     @click="showArrow(message)"
                     :class="message.status"
+                    ref="msgs"
                     class="message d-flex gap-2"
                     >
                         <span 
