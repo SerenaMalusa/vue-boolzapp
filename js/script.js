@@ -127,13 +127,19 @@ const app = createApp ({
         },
         // function to show the arrow of a message
         showArrow(message) {
-            // create new key for message and set the value to the opposite of what it was before
-            message.isArrowShown = !message.isArrowShown;
-            // after 30 sec set the variable to false to hide the arrow
+            // create new key for message and set it to true
+            message.isArrowShown = true;
+            // after 30 sec set the variables to false to hide the arrow and the menu
             setTimeout(()=> {
                 message.isArrowShown = false;
-            }, 1000 * 30);
-        } 
+                message.isMenuShown = true;
+            }, 1000 * 5);
+        },
+        // function to show the message menu
+        showMenu(message) {
+            // create new key for message and set it to true
+            message.isMenuShown = true;
+        },
     },
 });
 
