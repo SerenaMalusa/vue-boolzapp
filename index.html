@@ -178,12 +178,12 @@
 
                     <div 
                     v-for="message in activeContact.messages" 
-                    @click="makeVisible(message)"
+                    @click="showArrow(message)"
                     :class="message.status"
                     class="message d-flex gap-2"
                     >
                         <span 
-                        :class="(message.isShown) ? '' : 'd-none'"
+                        :class="(message.isArrowShown) ? '' : 'd-none'"
                         class="message_arrow"
                         >
                             <i class="bi bi-chevron-down"></i>

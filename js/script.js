@@ -125,12 +125,13 @@ const app = createApp ({
             });           
             // console.log(this.contacts);            
         },
-
-        makeVisible(message) {
-            message.isShown = !message.isShown;
-
+        // function to show the arrow of a message
+        showArrow(message) {
+            // create new key for message and set the value to the opposite of what it was before
+            message.isArrowShown = !message.isArrowShown;
+            // after 30 sec set the variable to false to hide the arrow
             setTimeout(()=> {
-                message.isShown = false;
+                message.isArrowShown = false;
             }, 1000 * 30);
         } 
     },
