@@ -191,6 +191,8 @@ body {
     align-self: flex-start;
     align-items: center;
     justify-content: space-between;
+
+    position: relative;
 }
 
 .message.sent {
@@ -203,9 +205,20 @@ body {
     margin: calc(var(--base-space) / 3) 0;
 }
 
+.message_time,
+.message_arrow {
+    color: #9ea2a7;
+}
+
 .message_time {
     margin-bottom: calc(var(--base-space) / 8);
     font-size: 0.8rem;
-    color: #9ea2a7;
     align-self: flex-end;
+}
+
+.message_arrow {
+    font-size: 1.1rem;
+    position: absolute;
+    top: 0;
+    right: calc(var(--base-space) / 2);
 }
