@@ -147,10 +147,12 @@ const app = createApp ({
             // create new key for message and set it to true
             message.isMenuShown = true;
         },
-
+        // function to delete the message from the array
         deleteMessage(messageIndex) {
             console.log(messageIndex,this.activeContact.messages[messageIndex].isArrowShown);
+            // remove the message with this index from the array
             this.activeContact.messages.splice(messageIndex,1);
+            // hide the arrow from the new message with this index (DOES NOT WORK!!)
             this.activeContact.messages[messageIndex].isArrowShown = false;
             console.log(messageIndex,this.activeContact.messages[messageIndex].isArrowShown);
         },
