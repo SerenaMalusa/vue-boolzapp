@@ -232,6 +232,7 @@ body {
     padding: calc(var(--base-space) / 2) calc(var(--base-space) / 2);
     width: var(--message_menu-w);
     background-color: #f3f3f3;
+    box-shadow: -1px 3px 7px 0px rgba(0,0,0,0.75);
 
     flex-direction: column;
     gap: calc(var(--base-space) / 2);
