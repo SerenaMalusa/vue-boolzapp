@@ -8,6 +8,7 @@ const app = createApp ({
             activeChat: 0,
             // value to use for the search among contacts
             searchContact: '',
+
         }
     },
 
@@ -124,6 +125,14 @@ const app = createApp ({
             });           
             // console.log(this.contacts);            
         },
+
+        makeVisible(message) {
+            message.isShown = !message.isShown;
+
+            setTimeout(()=> {
+                message.isShown = false;
+            }, 1000 * 30);
+        } 
     },
 });
 
