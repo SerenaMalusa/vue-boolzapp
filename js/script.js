@@ -67,12 +67,12 @@ const app = createApp ({
         // function to get the date and time and print them in the right format
         printDate() {
             // get the date of the moment
-            let newDate = new Date;
-            let newDay = (newDate.getDate() < 10) ? '0' + newDate.getDate() : newDate.getDate();
-            let newMonth = newDate.getMonth() + 1;
+            let now = new Date;
+            let newDay = (now.getDate() < 10) ? '0' + now.getDate() : now.getDate();
+            let newMonth = now.getMonth() + 1;
             newMonth = (newMonth < 10) ? '0' + newMonth : newMonth;
-            // return newdate in the right format
-            return `${newDay}/${newMonth}/${newDate.getFullYear()} ${newDate.getHours()}:${newDate.getMinutes()}:${newDate.getSeconds()}`;
+            // return now in the right format
+            return `${newDay}/${newMonth}/${now.getFullYear()} ${now.getHours()}:${now.getMinutes()}:${now.getSeconds()}`;
         },
         // function to send a new message
         sendMessage(contact) {
@@ -102,7 +102,7 @@ const app = createApp ({
             // create a new message   
             const newMessage = {
                 date: this.printDate(),
-                // messagge will be what I want
+                // messagge will be one ramdom element of the replies array
                 message: this.replies[this.getRandomNum(this.replies.length-1)],
                 // status wil be sent
                 status: 'received'
@@ -135,7 +135,7 @@ const app = createApp ({
             message.isArrowShown = true;            
             // close arrows and menus of all other messages
             this.activeContact.messages.forEach((msg)=>{
-                if (msg != message) {
+                if (msg.date != message.date) {
                     msg.isArrowShown = false;
                     msg.isMenuShown = false;
                 }
@@ -153,12 +153,8 @@ const app = createApp ({
         },
         // function to delete the message from the array
         deleteMessage(messageIndex) {
-            console.log(messageIndex,this.activeContact.messages[messageIndex].isArrowShown);
             // remove the message with this index from the array
             this.activeContact.messages.splice(messageIndex,1);
-            // hide the arrow from the new message with this index (DOES NOT WORK!!)
-            this.activeContact.messages[messageIndex].isArrowShown = false;
-            console.log(messageIndex,this.activeContact.messages[messageIndex].isArrowShown);
         },
         // function to get a random num between a max (included) and a min 
         getRandomNum(max,min=0) {

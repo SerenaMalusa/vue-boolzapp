@@ -88,6 +88,7 @@ body {
     height: calc(var(--header-h) - var(--base-space)/2);
     aspect-ratio: 1;
     overflow: hidden;
+    flex-shrink: 0;
 }
 
 .sidebar_img > img {
@@ -161,6 +162,21 @@ body {
 
 .active {
     background-color: #e9ebeb;
+}
+
+/*  set the width of contact info in order to use
+    the overflow proprieties for his children */
+.contact-info {
+    width: 50%;
+}
+
+/*  set the overflow so that longer messages will 
+    be cut and will not modify the layout*/
+.last-message {
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 /********************************

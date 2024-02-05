@@ -183,7 +183,7 @@
                     class="message d-flex gap-2"
                     >
                         <span 
-                        @click="showMenu(message)"
+                        @click.stop.prevent="showMenu(message)"
                         :class="(message.isArrowShown) ? '' : 'd-none'"
                         class="message_arrow"
                         >
@@ -193,7 +193,7 @@
                             class="message_menu d-flex"
                             >
                                 <span class="menu_option">Più informazioni</span>
-                                <span @click="deleteMessage(i)" class="menu_option">Cancella</span>
+                                <span @click.stop.prevent="deleteMessage(i)" class="menu_option">Cancella</span>
                             </div>
                         </span>
                         <p class="message_text">{{message.message}}</p>
