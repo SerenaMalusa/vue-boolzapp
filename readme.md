@@ -33,6 +33,12 @@ contatti il cui nome contiene le lettere inserite (es, Marco, Matteo Martina -> 
 permette di cancellare il messaggio selezionato
 - Visualizzazione ora e ultimo messaggio inviato/ricevuto nella lista dei contatti
 
+### Bonus
+- evitare che l’utente possa inviare un messaggio vuoto o composto solamente da spazi
+- inserire l’orario corretto nei messaggi
+- predisporre una lista di frasi e/o citazioni da utilizzare al posto della risposta “ok:” quando il pc risponde, anziché scrivere “ok”, scegliere una frase random dalla lista e utilizzarla come testo del messaggio di risposta del pc
+- dare la possibilità all’utente di aggiungere una nuova conversazione, inserendo in un popup il nome e il link all’icona del nuovo contatto
+
 ### Consigli utili
 - Si possono trascurare le scrollbar verticali, sia nel pannello dei messaggi, che nella
 lista dei contatti

@@ -75,8 +75,11 @@ const app = createApp ({
         },
         // function to send a new message
         sendMessage(contact) {
-            // if there is nothing written in the imput do nothing
-            if (!contact.draft) return;            
+            // get the words of the draft separated by every space
+            const draftWords = contact.draft.trim().split(' ');
+            // if there is nothing written in the imput, or if the first word 
+            // of the array created before is empty: do nothing
+            if (!contact.draft || !draftWords[0]) return;            
             // create a new message   
             const newMessage = {
                 date: this.printDate(),
