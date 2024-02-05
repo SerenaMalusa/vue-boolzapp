@@ -50,6 +50,13 @@ const app = createApp ({
         getLastReceivedMessage(messages) {
             // filter for the received messages
             const receivedMessages = messages.filter((message) => message.status == 'received');
+            // if there aren't any received messages return an object with an ampty date
+            if (receivedMessages.length <= 0 ) {
+                const emptyDate = {
+                    date: '',
+                };
+                return emptyDate;
+            };
             // returns only the last message
             return receivedMessages[receivedMessages.length - 1];
         },
@@ -57,6 +64,8 @@ const app = createApp ({
         printLastAccess() {
             // save the last message's date
             const lastReceivedTime = this.getLastReceivedMessage(this.activeMessages).date;
+            // if lastReceivedTime is empty: stop
+            if (!lastReceivedTime) return;
             // returns the string to be printed in page
             return `Ultimo accesso alle 
                     ${this.messageTime(lastReceivedTime)} 
@@ -71,8 +80,10 @@ const app = createApp ({
             let newDay = (now.getDate() < 10) ? '0' + now.getDate() : now.getDate();
             let newMonth = now.getMonth() + 1;
             newMonth = (newMonth < 10) ? '0' + newMonth : newMonth;
+            let newHours = (now.getHours() < 10) ? '0' + now.getHours() : now.getHours();
+            let newMinutes = (now.getMinutes() < 10) ? '0' + now.getMinutes() : now.getMinutes(); 
             // return now in the right format
-            return `${newDay}/${newMonth}/${now.getFullYear()} ${now.getHours()}:${now.getMinutes()}:${now.getSeconds()}`;
+            return `${newDay}/${newMonth}/${now.getFullYear()} ${newHours}:${newMinutes}:${now.getSeconds()}`;    
         },
         // function to send a new message
         sendMessage(contact) {
@@ -163,9 +174,21 @@ const app = createApp ({
         // function to add a new contact
         addNewContact() {
             // ask the contact name and img url to the user with prompts
-            const newContactName = prompt('nome contatto').trim();
-            const newContactImg = prompt('url immagine').trim();
-
+            let newContactName = prompt('nome contatto',this.searchContact).trim();
+            // while the name is empty or only spaces ask again
+            let nameWords = newContactName.split(' ');
+            while(!newContactName || !nameWords[0]){
+                newContactName = prompt('inserisci il nome del nuovo contatto');
+                nameWords = newContactName.split(' ');
+            };
+            // ask the url for the contact img
+            let newContactImg = prompt('url immagine').trim();
+            // while the url is empty or only spaces ask again
+            let urlWords = newContactImg.split(' ');
+            while(!newContactImg || !nameWords[0]){
+                newContactImg = prompt('inserisci un url');
+                urlWords = newContactName.split(' ');
+            };
             // create a new contact obj
             const newContact = {
                 name: newContactName,
@@ -173,13 +196,10 @@ const app = createApp ({
                 visible: true,
                 messages: [ ],    
             };
-
             // empty the search bar
             this.searchContact = '';
-
             // add this new contact as the first contact
             this.contacts.unshift(newContact);
-
             // make all contacts visible
             this.contacts.forEach((contact)=> {
                 contact.visible = true;
