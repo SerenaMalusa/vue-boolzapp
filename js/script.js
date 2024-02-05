@@ -128,17 +128,31 @@ const app = createApp ({
         // function to show the arrow of a message
         showArrow(message) {
             // create new key for message and set it to true
-            message.isArrowShown = true;
-            // after 30 sec set the variables to false to hide the arrow and the menu
+            message.isArrowShown = true;            
+            // close arrows and menus of all other messages
+            this.activeContact.messages.forEach((msg)=>{
+                if (msg != message) {
+                    msg.isArrowShown = false;
+                    msg.isMenuShown = false;
+                }
+            });            
+            // after 20 sec set the variables to false to hide the arrow and the menu
             setTimeout(()=> {
                 message.isArrowShown = false;
-                message.isMenuShown = true;
-            }, 1000 * 5);
+                message.isMenuShown = false;
+            }, 1000 * 20);
         },
         // function to show the message menu
         showMenu(message) {
             // create new key for message and set it to true
             message.isMenuShown = true;
+        },
+
+        deleteMessage(messageIndex) {
+            console.log(messageIndex,this.activeContact.messages[messageIndex].isArrowShown);
+            this.activeContact.messages.splice(messageIndex,1);
+            this.activeContact.messages[messageIndex].isArrowShown = false;
+            console.log(messageIndex,this.activeContact.messages[messageIndex].isArrowShown);
         },
     },
 });

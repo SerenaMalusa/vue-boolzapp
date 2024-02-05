@@ -223,6 +223,11 @@ body {
     right: calc(var(--base-space) / 2);
 }
 
+.message:hover,
+.message_arrow:hover {
+    cursor: pointer;
+}
+
 .message_arrow > i {
     font-size: 1.1rem;
 }

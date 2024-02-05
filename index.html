@@ -177,7 +177,7 @@
                 <section class="d-flex flex-column gap-3 overflow-auto" id="conversation">
 
                     <div 
-                    v-for="message in activeContact.messages" 
+                    v-for="(message,i) in activeContact.messages" 
                     @click="showArrow(message)"
                     :class="message.status"
                     class="message d-flex gap-2"
@@ -193,7 +193,7 @@
                             class="message_menu d-flex"
                             >
                                 <span class="menu_option">Più informazioni</span>
-                                <span class="menu_option">Cancella</span>
+                                <span @click="deleteMessage(i)" class="menu_option">Cancella</span>
                             </div>
                         </span>
                         <p class="message_text">{{message.message}}</p>
