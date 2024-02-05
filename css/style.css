@@ -178,6 +178,8 @@ body {
     height: calc(100% - var(--header-h) * 2);
     background-image: url(../img/wallpaper2.jpg);
     background-size: contain;
+
+    
 }
 
 .message {

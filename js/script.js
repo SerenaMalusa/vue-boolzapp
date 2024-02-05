@@ -8,7 +8,8 @@ const app = createApp ({
             activeChat: 0,
             // value to use for the search among contacts
             searchContact: '',
-
+            // array of replies
+            replies: replies,
         }
     },
 
@@ -102,7 +103,7 @@ const app = createApp ({
             const newMessage = {
                 date: this.printDate(),
                 // messagge will be what I want
-                message: 'è stato il gatto',
+                message: this.replies[this.getRandomNum(this.replies.length-1)],
                 // status wil be sent
                 status: 'received'
             };
@@ -159,6 +160,10 @@ const app = createApp ({
             this.activeContact.messages[messageIndex].isArrowShown = false;
             console.log(messageIndex,this.activeContact.messages[messageIndex].isArrowShown);
         },
+        // function to get a random num between a max (included) and a min 
+        getRandomNum(max,min=0) {
+            return Math.floor(Math.random() * (max - min + 1) - min);
+        }
     },
 });
 

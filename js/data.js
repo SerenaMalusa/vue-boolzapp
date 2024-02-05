@@ -162,19 +162,11 @@ const contacts = [
     }
 ];
 
-
-// let letters = 'sa';
-
-
-// function similarContacts(letters) {
-//     const similarContactArray = contacts.filter((contact)=> {
-//         const name = contact.name.toLowerCase();
-//         const isThere = name.includes(letters);
-//         console.log(name, isThere);
-//         return isThere;
-//     });
-//     return similarContactArray;
-// };
-
-// console.log(similarContacts(letters));
+const replies = [
+    'ciao',
+    'hello',
+    'ti voglio bene',
+    'è stato il gatto?',
+    'dite amici e entrate',
+];
 
