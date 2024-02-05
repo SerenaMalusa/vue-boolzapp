@@ -176,52 +176,46 @@
                 <!-- conversation section -->
                 <section class="d-flex flex-column gap-3 overflow-auto" id="conversation">
 
-                    <!-- <div 
+                    <div 
                     v-for="message in activeContact.messages" 
                     :class="message.status"
                     class="message d-flex gap-2"
                     >
+                        <span class="message_arrow d-none">
+                            <i class="bi bi-chevron-down"></i>
+                            <div class="message_menu d-flex d-none">
+                                <span class="menu_option">Più informazioni</span>
+                                <span class="menu_option">Cancella</span>
+                            </div>
+                        </span>
                         <p class="message_text">{{message.message}}</p>
                         <span class="message_time">{{messageTime(message.date)}}</span>
-                    </div> -->
+                    </div>
 
-                    <div class="message sent d-flex">
+                    <!-- <div class="message sent d-flex">
                         <span class="message_arrow">
-                            <i class="bi bi-chevron-down d-none"></i>
+                            <i class="bi bi-chevron-down"></i>
+                            <div class="message_menu d-flex d-none">
+                                <span class="menu_option">Più informazioni</span>
+                                <span class="menu_option">Cancella</span>
+                            </div>
                         </span>
                         <p class="message_text">Ciao ciao</p>
                         <span class="message_time">12:00</span>
+                        
                     </div>
 
-                    <div class="message d-flex">
+                    <div class="message received d-flex">
                         <span class="message_arrow">
                             <i class="bi bi-chevron-down"></i>
+                            <div class="message_menu d-flex">
+                                <span class="menu_option">Più informazioni</span>
+                                <span class="menu_option">Cancella</span>
+                            </div>
                         </span>
                         <p class="message_text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Commodi eius pariatur, officia non, possimus nihil eligendi quas dignissimos veniam qui eos doloribus hic necessitatibus culpa tenetur similique! Similique vitae ipsa saepe animi asperiores tempore pariatur voluptatum! Eligendi, illum minus magni repellat, a cupiditate optio dolorem magnam quo tenetur odit sapiente.</p>
                         <span class="message_time">12:00</span>
-                    </div>                   
-                    
-                    <div class="message sent d-flex">
-                        <span class="message_arrow">
-                            <i class="bi bi-chevron-down"></i>
-                        </span>
-                        <p class="message_text">Ciao ciao</p>
-                        <span class="message_time">12:00</span>
-                    </div>
-                    <div class="message sent d-flex">
-                        <span class="message_arrow">
-                            <i class="bi bi-chevron-down"></i>
-                        </span>
-                        <p class="message_text">Ciao ciao</p>
-                        <span class="message_time">12:00</span>
-                    </div>
-                    <div class="message sent d-flex">
-                        <span class="message_arrow">
-                            <i class="bi bi-chevron-down"></i>
-                        </span>
-                        <p class="message_text">Ciao ciao</p>
-                        <span class="message_time">12:00</span>
-                    </div>
+                    </div>                    -->
 
                 </section>
                 <!-- end conversation section -->

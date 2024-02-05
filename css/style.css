@@ -8,6 +8,7 @@
     --header-h: 60px;
     --sidebar-el-h: calc(var(--header-h) + var(--base-space) / 2);
     --message-w: 40%;
+    --message_menu-w: 140px;
 }
 
 /********************************
@@ -217,8 +218,30 @@ body {
 }
 
 .message_arrow {
-    font-size: 1.1rem;
     position: absolute;
     top: 0;
     right: calc(var(--base-space) / 2);
+}
+
+.message_arrow > i {
+    font-size: 1.1rem;
+}
+
+/* MENù A TENDINA*/
+.message_menu {
+    padding: calc(var(--base-space) / 2) calc(var(--base-space) / 2);
+    width: var(--message_menu-w);
+    background-color: #f3f3f3;
+
+    flex-direction: column;
+    gap: calc(var(--base-space) / 2);
+
+    position: absolute;
+    top: calc(var(--base-space) * 1.1);
+    right: 0;
+    z-index: 1;
+}
+
+.message.received .message_menu {
+    left: calc((var(--base-space) / 4) * -1);
 }
