@@ -107,6 +107,8 @@ const app = createApp ({
             contact.draft = '';
             // instant reply
             this.receiveMessage(contact);
+            // scroll to the new message
+            this.autoScroll();
         },
         // function to create a new received message
         receiveMessage(contact) {
@@ -123,14 +125,8 @@ const app = createApp ({
                 // push this message in the messages array
                 contact.messages.push(newMessage);
             }, 1000);
-
-            // after half second get the last nsg with the "ref template" and
-            // scroll it into view
-            setTimeout(()=> {
-                // console.log(lastMsgEl);
-                const lastMsgEl = this.$refs.msgs[this.$refs.msgs.length-1];
-                lastMsgEl.scrollIntoView({ behavior: 'smooth' });
-            },500);
+            // scroll to the new message
+            this.autoScroll();
         },
         // function that changes the value of the 'visible' key for the argument contact
         changeVisible() {
@@ -213,6 +209,15 @@ const app = createApp ({
                 contact.visible = true;
             });        
         },
+        autoScroll() {
+            // after one second get the last nsg with the "ref template" and
+            // scroll it into view
+            setTimeout(()=> {
+                // console.log(lastMsgEl);
+                const lastMsgEl = this.$refs.msgs[this.$refs.msgs.length-1];
+                lastMsgEl.scrollIntoView();
+            },1000);
+        }
     },
 });
 
