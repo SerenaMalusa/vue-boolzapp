@@ -217,7 +217,7 @@ const app = createApp ({
             setTimeout(()=> {
                 // console.log(lastMsgEl);
                 const lastMsgEl = this.$refs.msgs[this.$refs.msgs.length-1];
-                lastMsgEl.scrollIntoView();
+                lastMsgEl.scrollIntoView({ behavior: 'smooth' });
             },1000);
         }
     },
