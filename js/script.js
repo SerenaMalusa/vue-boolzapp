@@ -31,12 +31,16 @@ const app = createApp ({
                 return isThere;
             });
         },
+        lastMsgEl() {
+            return this.$refs.msgs[this.$refs.msgs.length-1];
+        },
     },
 
     methods: {
         // function that changes the active contact to the index of the clicked chat
         goToChat(index) {
             this.activeChat = index;
+            this.autoScroll();
         },
         // function that gets the time from the date string
         messageTime(date) {
@@ -105,10 +109,13 @@ const app = createApp ({
             contact.messages.push(newMessage);
             // empty the draft (and consequently the imput)
             contact.draft = '';
-            // instant reply
-            this.receiveMessage(contact);
-            // scroll to the new message
-            this.autoScroll();
+            // after 1 second
+            setTimeout(()=> {
+                // instant reply
+                this.receiveMessage(contact);
+                // scroll to the new message
+                this.autoScroll();
+            }, 1000);
         },
         // function to create a new received message
         receiveMessage(contact) {
@@ -120,13 +127,13 @@ const app = createApp ({
                 // status wil be sent
                 status: 'received'
             };
+            // push this message in the messages array
+            contact.messages.push(newMessage);
             // after 1 second
             setTimeout(()=> {
-                // push this message in the messages array
-                contact.messages.push(newMessage);
+                // scroll to the new message
+                this.autoScroll();
             }, 1000);
-            // scroll to the new message
-            this.autoScroll();
         },
         // function that changes the value of the 'visible' key for the argument contact
         changeVisible() {
@@ -210,14 +217,9 @@ const app = createApp ({
             });        
         },
         autoScroll() {
-            // after one second get the last nsg with the "ref template" and
-            // scroll it into view
-            setTimeout(()=> {
-                // console.log(lastMsgEl);
-                const lastMsgEl = this.$refs.msgs[this.$refs.msgs.length-1];
-                lastMsgEl.scrollIntoView();
-            },1000);
-        }
+            // scroll the last message into view
+            this.lastMsgEl.scrollIntoView();
+        },  
     },
 });
 
