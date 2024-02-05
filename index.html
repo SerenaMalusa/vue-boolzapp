@@ -70,7 +70,7 @@
                 <!-- end sidebar header -->
 
                 <!-- notification section -->
-                <section class="d-flex gap-2" id="notifications">
+                <section class="app-message d-flex gap-2" id="notifications">
 
                     <div class="sidebar_img">
                         <i class="bi bi-bell-slash-fill"></i>
@@ -135,9 +135,21 @@
                         <div class="contact-time">12:00</div>
                     </div> -->
 
-                    <div v-if="similarContacts.length == 0" class="debug">
-                        ciao
-                    </div>
+                    <section 
+                    v-if="similarContacts.length <= 0" 
+                    class="app-message d-flex gap-2 align-items-center" 
+                    id="add-contact"
+                    >
+
+                        <div class="sidebar_img">
+                            <i class="bi bi-plus-lg"></i>
+                        </div>
+    
+                        <div>
+                            <h2 class="contact-name">Aggiungi nuovo contatto</h2>
+                        </div>
+    
+                    </section>
 
                 </div>
                 <!-- end contacts section -->

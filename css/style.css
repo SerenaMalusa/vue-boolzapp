@@ -82,6 +82,13 @@ body {
     width: var(--sidebar-w);
 }
 
+.app-message > .sidebar_img {
+    background-color: #f2fbff;
+    text-align: center;
+    font-size: 1.2rem;
+    line-height: calc(var(--header-h) - var(--base-space)/2 - 6px);
+}
+
 .sidebar_img {
     border: 1px solid #e9ebeb;
     border-radius: 50%;
@@ -96,7 +103,7 @@ body {
 }
 
 .contact,
-#notifications {
+.app-message {
     height: var(--header-h);
     padding: calc(var(--base-space) / 4) calc(var(--base-space) / 2);
 }
@@ -116,10 +123,6 @@ body {
 }
 
 #notifications > .sidebar_img {
-    background-color: #f2fbff;
-    text-align: center;
-    font-size: 1.2rem;
-    line-height: calc(var(--header-h) - var(--base-space)/2 - 6px);
     color: #8edafc;
 }
 
@@ -177,6 +180,15 @@ body {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+
+/* ADD CONTACT */
+#add-contact {
+    background-color: #d5f9ba;
+}
+
+#add-contact > .sidebar_img {
+    color: #97d16a;
 }
 
 /********************************
