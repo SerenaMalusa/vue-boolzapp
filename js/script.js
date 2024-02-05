@@ -159,7 +159,32 @@ const app = createApp ({
         // function to get a random num between a max (included) and a min 
         getRandomNum(max,min=0) {
             return Math.floor(Math.random() * (max - min + 1) - min);
-        }
+        },
+        // function to add a new contact
+        addNewContact() {
+            // ask the contact name and img url to the user with prompts
+            const newContactName = prompt('nome contatto').trim();
+            const newContactImg = prompt('url immagine').trim();
+
+            // create a new contact obj
+            const newContact = {
+                name: newContactName,
+                avatar: newContactImg,
+                visible: true,
+                messages: [ ],    
+            };
+
+            // empty the search bar
+            this.searchContact = '';
+
+            // add this new contact as the first contact
+            this.contacts.unshift(newContact);
+
+            // make all contacts visible
+            this.contacts.forEach((contact)=> {
+                contact.visible = true;
+            });        
+        },
     },
 });
 

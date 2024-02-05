@@ -27,7 +27,8 @@ footer {
     background-color: #f3f3f3;
 }
 
-.contact-name {
+.contact-name,
+.app-message_text {
     font-size: 1.2rem;
     font-weight: 600;
 }
@@ -189,6 +190,11 @@ body {
 
 #add-contact > .sidebar_img {
     color: #97d16a;
+}
+
+#add-contact > .sidebar_img,
+.app-message_text {
+    cursor: pointer;
 }
 
 /********************************

@@ -135,7 +135,9 @@
                         <div class="contact-time">12:00</div>
                     </div> -->
 
+                    <!-- add contact section -->
                     <section 
+                    @click="addNewContact()"
                     v-if="similarContacts.length <= 0" 
                     class="app-message d-flex gap-2 align-items-center" 
                     id="add-contact"
@@ -146,10 +148,11 @@
                         </div>
     
                         <div>
-                            <h2 class="contact-name">Aggiungi nuovo contatto</h2>
+                            <h2 class="app-message_text">Aggiungi nuovo contatto</h2>
                         </div>
     
                     </section>
+                    <!-- end add contact section -->
 
                 </div>
                 <!-- end contacts section -->
